@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap");
+
+.settings {
+  background: #181f2e;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .logo {
+    margin-left: 10px;
+    margin-top: 10px;
+    fill: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.settings-modal-wrapper {
+  .settings-input__p {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    margin-top: 15px;
+  }
+
+  .settings-buttons-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    width: 265px;
+
+    .settings-button {
+      background: #181f2e;
+      color: #fff;
+      font-family: "open sans", sans-serif;
+      font-size: 15px;
+      padding: 5px 15px;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .settings-input {
+    position: relative;
+    margin-bottom: 20px;
+
+    .settings-comment {
+      color: red;
+      font-size: 14px;
+      margin-left: 4px;
+      position: absolute;
+      bottom: -30px;
+    }
+  }
+}

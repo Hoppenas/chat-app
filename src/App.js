@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Chat from "./pages/chat/Chat";
+import LogIn from "./pages/logIn/logIn";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Switch>
+          <Route
+            path="/" 
+            exact 
+            component={LogIn} 
+            // email={email} 
+            // setEmail={setEmail} 
+            // password={password} 
+            // setPassword={setPassword} 
+          />
+          <Route path="/chat" exact component={Chat} />
+        </Switch>
+      </Router>
     </div>
   );
 }

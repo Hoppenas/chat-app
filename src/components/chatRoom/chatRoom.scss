@@ -1,0 +1,41 @@
+.chat__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  .chat__input {
+    border-top: 1px solid #efefef;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    .button-send {
+      background: #7064ea;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      display: block;
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      border: 3px solid #fff;
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.24),
+        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      margin-right: 60px;
+
+      &:hover {
+        // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        cursor: pointer;
+      }
+    }
+
+    .button-send__logo {
+      height: 40px;
+    }
+  }
+}

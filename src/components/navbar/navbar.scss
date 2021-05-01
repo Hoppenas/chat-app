@@ -1,0 +1,64 @@
+.navbar {
+  background: #efefef;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+
+  .navbar-button {
+    border: none;
+    border-bottom: 1px solid #d2d2d2;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 15px;
+
+    .navbar-firstLine {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .navbar-time {
+      color: grey;
+      font-size: 10px;
+      font-weight: normal;
+    }
+
+    .nabar-lastMessage {
+      color: grey;
+      font-size: 12px;
+      font-weight: normal;
+      float: left;
+      margin-top: 5px;
+    }
+
+    &:hover {
+      background: #d8ebff;
+      cursor: pointer;
+    }
+  }
+
+  .navbar-button--active {
+    border-left: 10px solid #7064ea;
+    padding-left: 5px;
+    border-right: 10px solid white;
+    padding-right: 5px;
+  }
+}
+
+.create-room-wrapper {
+  position: relative;
+
+  .create-room-name {
+    margin-bottom: 20px;
+  }
+  .new-room__comment {
+    color: red;
+    font-size: 14px;
+    margin-left: 4px;
+    position: absolute;
+    top: 5px;
+  }
+}
+
+.portalClassName {
+  background: green;
+}
