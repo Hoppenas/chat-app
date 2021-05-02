@@ -8,7 +8,7 @@ import TimeConvert from "../../utils/TimeConverter";
 function ChatRoom(props) {
     const { roomData, postData, setRoomsData, roomsData, activeRoom, sender } = props;
     const [message, setMessage] = useState("");
-    const [author, setAuthor] = useState("");
+    const [author, setAuthor] = useState("Martynas");
 
     const sendMessage = () => {
 
@@ -32,31 +32,29 @@ function ChatRoom(props) {
       <div className="chat__container">
         <Chat roomData={roomData} sender={sender} roomsData={roomsData} activeRoom={activeRoom} />
         <div className="chat__input">
-          <div>
-            <div className="input-group">
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                name="username"
-                className="login-input"
-                placeholder="Username"
-                id="input-userName"
-                onChange={(event) => setAuthor(event.target.value)}
-              />
-            </div>
+        {/* <div className="input-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            className="login-input"
+            placeholder="Username"
+            id="input-userName"
+            onChange={(event) => setAuthor(event.target.value)}
+          />
+        </div> */}
 
-            <div className="input-group">
-              <label htmlFor="message"></label>
-              <input
-                type="text"
-                name="text"
-                className="text-input"
-                placeholder="type a message..."
-                id="input-message"
-                onChange={(event) => setMessage(event.target.value)}
-              />
-            </div>
-          </div>
+        <div className="input-group">
+          <label htmlFor="message"></label>
+          <input
+            type="text"
+            name="text"
+            className="text-input"
+            placeholder="type a message..."
+            id="input-message"
+            onChange={(event) => setMessage(event.target.value)}
+          />
+        </div>
 
           <button
             type="button"
