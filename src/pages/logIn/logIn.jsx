@@ -10,12 +10,6 @@ function LogIn() {
     const postData = () => {
       let req = new XMLHttpRequest();
   
-      // req.onreadystatechange = () => {
-      //   if (req.readyState == XMLHttpRequest.DONE) {
-      //     setUser(JSON.parse(req.responseText));
-      //   }
-      // };
-  
       req.open("PUT", "https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a", false);
       req.setRequestHeader("Content-Type", "application/json");
       req.setRequestHeader("X-Master-Key", "$2b$10$bLbTHa0ruz55FFhdAEDrqeVnw6nhKbtCy9BnKJW2DhE.mbDS9rzaG");
@@ -55,8 +49,10 @@ function LogIn() {
 
     const submit = () => {
       if(checkPassword() & checkEmail()) {
-        history.push('/chat');
         postData();
+        history.push('/chat');
+        setEmail("");
+        setPassword("");
       }
     }
 

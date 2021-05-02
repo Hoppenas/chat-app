@@ -13,6 +13,14 @@
     position: absolute;
     bottom: 0;
 
+    .text-input {
+      border-bottom: 1px solid #d2d2d2;
+      border: none;
+      padding: 15px 0;
+      width: 95%;
+      outline: none;
+    }
+
     .button-send {
       background: #7064ea;
       color: #fff;
@@ -29,7 +37,7 @@
       margin-right: 60px;
 
       &:hover {
-        // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        background: #2b2570;
         cursor: pointer;
       }
     }

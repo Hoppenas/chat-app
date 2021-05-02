@@ -13,9 +13,9 @@ function Chat() {
 
   const getData = () => {
     axios.get(`https://api.jsonbin.io/v3/b/608407ea48f71c7a71cd288e/latest`, false)
-    .then(res => {
-      setRoomsData(res.data.record)
-    })
+      .then(res => {
+        setRoomsData(res.data.record)
+      })
   }
 
   const postData = () => {
@@ -40,7 +40,7 @@ function Chat() {
   function updateScroll(){
     let element = document.getElementById("chat");
     element.scrollTop = element.scrollHeight;
-}
+  }
 
   useEffect(() => {getData()}, []);
   useEffect(() => {updateScroll()}, [roomsData, activeRoom]);
@@ -66,10 +66,5 @@ function Chat() {
     </div>
   );
 }
-
-//websocket kas tai?
-
-//kilo.health logo
-//https://lh3.googleusercontent.com/a-/AOh14Gid-_tsS9Lt6Cv6YegrAtJHa1b_e-8ECMgg9frw=s40
 
 export default Chat;

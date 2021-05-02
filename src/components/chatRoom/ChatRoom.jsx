@@ -18,7 +18,6 @@ function ChatRoom(props) {
         time: new Date().getTime()
       }
       
-      // gal galima supaprastinti?
       const dataToUpdate = roomsData;
       dataToUpdate[activeRoom].push(messageWithData);
       setRoomsData(dataToUpdate);
@@ -109,7 +108,5 @@ Chat.propTypes = {
   roomsData: PropTypes.object,
   activeRoom: PropTypes.string,
 };
-
-
 
 export default ChatRoom;

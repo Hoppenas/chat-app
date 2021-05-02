@@ -42,13 +42,14 @@ function Navbar(props) {
                 setRoomsData(res.data.record)
             })
             .catch(e => console.log(e));
-            }
+        }
 
 
     const createRoom = () => {
-        if (checkNewRoomName) {
+        if (checkNewRoomName()) {
             setModalIsOpen(false);
             postData();
+            setRoomName("");
         }
     }
 
@@ -81,7 +82,12 @@ function Navbar(props) {
             <Modal 
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
-                portalClassName="settings-modal"
+                style={{
+                    content: {
+                      right: '850px',
+                      bottom: '700px',
+                    }
+                  }}
             >
                 <h2>Enter room name</h2>
                 <div className="create-room-wrapper">
@@ -93,8 +99,18 @@ function Navbar(props) {
                     />
                     <p id="new-room__comment" className="new-room__comment"></p>
                 </div>
-                <button onClick={createRoom}>Save</button>
-                <button onClick={()=> setModalIsOpen(false)}>Cancel</button>
+                <button 
+                    onClick={createRoom} 
+                    className="navbar-modal-button"
+                >
+                    Save
+                </button>
+                <button 
+                    onClick={()=> setModalIsOpen(false)} 
+                    className="navbar-modal-button"
+                >
+                    Cancel
+                </button>
             </Modal>
         </div>
     )

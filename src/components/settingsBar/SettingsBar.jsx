@@ -19,6 +19,8 @@ function SettingsBar() {
         axios.get(`https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a/latest`, false)
         .then(res => {
             setUserData(res.data);
+            console.log("settings data");
+            console.log(userData);
         })
     }
 
@@ -79,18 +81,39 @@ function SettingsBar() {
     const submit = () => {
         if (checkEmail() & checkPassword()) {
             postData();
+            setNewEmail("");
+            setNewPassword("");
+            setNewBirthday("");
         }
+    }
+
+    const close = () => {
+        setNewEmail("");
+        setNewPassword("");
+        setNewBirthday("");
+        setModalIsOpen(false);
+    }
+
+    const logOut = () => {
+        setUserData({});
+        setModalIsOpen(false);
     }
 
     return (
       <div className="settings">
             <Link to="/">
-                <SignOutLogo className="logo" />
+                <SignOutLogo className="logo" onClick={()=>setUserData({})} />
             </Link>
             <SettingsLogo className="logo" onClick={() => setModalIsOpen(true)} />
             <Modal 
                 isOpen={modalIsOpen}
                 onRequestClose={() => setModalIsOpen(false)}
+                style={{
+                    content: {
+                      right: '800px',
+                      top: '500px',
+                    }
+                  }}
             >
             <div className="settings-modal-wrapper">
                 <h2>Settings</h2>
@@ -123,7 +146,7 @@ function SettingsBar() {
                 </div>
                 <div className="settings-buttons-wrapper">
                     <button onClick={submit} className="settings-button">Save</button>
-                    <button onClick={()=> setModalIsOpen(false)} className="settings-button">Close</button>
+                    <button onClick={close} className="settings-button">Close</button>
                 </div>
             </div>
             </Modal>
