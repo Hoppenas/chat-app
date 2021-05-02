@@ -15,16 +15,14 @@ function SettingsBar() {
     const [newPassword, setNewPassword] = useState("");
     const [newBirthday, setNewBirthday] = useState("");
 
-    const getData = () => {
+    const getUserData = () => {
         axios.get(`https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a/latest`, false)
         .then(res => {
             setUserData(res.data);
-            console.log("settings data");
-            console.log(userData);
         })
     }
 
-    const postData = () => {
+    const postUserData = () => {
         const newUserData = userData;
 
         if (newEmail != "") {newUserData.email=newEmail}
@@ -48,7 +46,7 @@ function SettingsBar() {
         .catch(e => console.log(e));
       }
 
-    useEffect(() => {getData()}, []);
+    useEffect(() => {getUserData()}, []);
 
     function checkPassword() {
         if (newPassword === "") {return true} 
@@ -80,7 +78,7 @@ function SettingsBar() {
 
     const submit = () => {
         if (checkEmail() & checkPassword()) {
-            postData();
+            postUserData();
             setNewEmail("");
             setNewPassword("");
             setNewBirthday("");
@@ -91,11 +89,6 @@ function SettingsBar() {
         setNewEmail("");
         setNewPassword("");
         setNewBirthday("");
-        setModalIsOpen(false);
-    }
-
-    const logOut = () => {
-        setUserData({});
         setModalIsOpen(false);
     }
 
@@ -110,8 +103,9 @@ function SettingsBar() {
                 onRequestClose={() => setModalIsOpen(false)}
                 style={{
                     content: {
-                      right: '800px',
+                      left: '40px',
                       top: '500px',
+                      width: '250px',
                     }
                   }}
             >

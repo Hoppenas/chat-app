@@ -22,7 +22,7 @@ function Navbar(props) {
             }
         }
 
-        const postData = () => {
+        const saveChatroom = () => {
             const dataToUpdate = {
             ...roomsData,
             ...{[roomName]: []}
@@ -48,7 +48,8 @@ function Navbar(props) {
     const createRoom = () => {
         if (checkNewRoomName()) {
             setModalIsOpen(false);
-            postData();
+            saveChatroom();
+            setActiveRoom(roomName);
             setRoomName("");
         }
     }
@@ -62,7 +63,7 @@ function Navbar(props) {
                     className={activeRoom===room ? "navbar-button navbar-button--active" : "navbar-button"}
                 >
                     <div className="navbar-firstLine">
-                        <div>{room}</div>
+                        <div className="room-name">{room}</div>
                         <div className="navbar-time">
                             {roomsData[room].length>0 ? TimeConvert(roomsData[room][roomsData[room].length-1].time) : ""}
                             </div>
@@ -84,8 +85,10 @@ function Navbar(props) {
                 onRequestClose={() => setModalIsOpen(false)}
                 style={{
                     content: {
-                      right: '850px',
+                      left: '150px',
                       bottom: '700px',
+                      inset: '15% 62% 62% 20%',
+                      width: '200px',
                     }
                   }}
             >
@@ -121,7 +124,7 @@ Navbar.propTypes = {
     setActiveRoom: PropTypes.func,
     activeRoom: PropTypes.string,
     roomsData: PropTypes.object,
-    postData: PropTypes.func,
+    saveChatroom: PropTypes.func,
     setRoomsData: PropTypes.func,
 };
 

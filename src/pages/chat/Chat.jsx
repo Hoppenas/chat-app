@@ -11,14 +11,14 @@ function Chat() {
   const [activeRoom, setActiveRoom] = useState("room1");
   const [sender, setSender] = useState("Martynas");
 
-  const getData = () => {
+  const getChatMessages = () => {
     axios.get(`https://api.jsonbin.io/v3/b/608407ea48f71c7a71cd288e/latest`, false)
       .then(res => {
         setRoomsData(res.data.record)
       })
   }
 
-  const postData = () => {
+  const postMessages = () => {
     const dataToUpdate = roomsData;    
     const prepareJSON = JSON.stringify(roomsData)
 
@@ -42,7 +42,7 @@ function Chat() {
     element.scrollTop = element.scrollHeight;
   }
 
-  useEffect(() => {getData()}, []);
+  useEffect(() => {getChatMessages()}, []);
   useEffect(() => {updateScroll()}, [roomsData, activeRoom]);
 
   return (
@@ -57,7 +57,7 @@ function Chat() {
       />
       <ChatRoom 
         roomData={roomsData[activeRoom]} 
-        postData={postData}
+        postMessages={postMessages}
         activeRoom={activeRoom}
         sender={sender}
         roomsData={roomsData}

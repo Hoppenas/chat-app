@@ -1,14 +1,17 @@
 @impoxrt url("https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap");
 
 .navbar {
-  background: #efefef;
+  background: #fff;
+  border-right: 1px solid #efefef;
+  opacity: 0.8;
   display: flex;
   flex-direction: column;
   width: 250px;
 
   .navbar-button {
+    background: #fff;
     border: none;
-    border-bottom: 1px solid #d2d2d2;
+    border-bottom: 1px solid #efefef;
     font-size: 15px;
     font-weight: bold;
     padding: 15px;
@@ -16,6 +19,10 @@
     .navbar-firstLine {
       display: flex;
       justify-content: space-between;
+    }
+
+    .room-name {
+      text-transform: uppercase;
     }
 
     .navbar-time {
@@ -30,6 +37,7 @@
       font-weight: normal;
       float: left;
       margin-top: 5px;
+      white-space: nowrap;
     }
 
     &:hover {
@@ -39,8 +47,6 @@
   }
 
   .navbar-button--active {
-    border-left: 10px solid #7064ea;
-    padding-left: 5px;
     background: #d8ebff;
   }
 }

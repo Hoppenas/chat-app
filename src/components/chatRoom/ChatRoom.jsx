@@ -6,7 +6,7 @@ import { ReactComponent as Send } from "../../assets/icons/play.svg";
 import TimeConvert from "../../utils/TimeConverter";
 
 function ChatRoom(props) {
-    const { roomData, postData, setRoomsData, roomsData, activeRoom, sender } = props;
+    const { roomData, postMessages, setRoomsData, roomsData, activeRoom, sender } = props;
     const [message, setMessage] = useState("");
     const [author, setAuthor] = useState("Martynas");
 
@@ -22,27 +22,15 @@ function ChatRoom(props) {
       dataToUpdate[activeRoom].push(messageWithData);
       setRoomsData(dataToUpdate);
 
-      postData();
+      postMessages();
 
-      document.getElementById("input-message").value = "";
+      document.getElementById("chatRoom-input-message").value = "";
     }
 
     return (
       <div className="chat__container">
         <Chat roomData={roomData} sender={sender} roomsData={roomsData} activeRoom={activeRoom} />
         <div className="chat__input">
-        {/* <div className="input-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            name="username"
-            className="login-input"
-            placeholder="Username"
-            id="input-userName"
-            onChange={(event) => setAuthor(event.target.value)}
-          />
-        </div> */}
-
         <div className="input-group">
           <label htmlFor="message"></label>
           <input
@@ -50,7 +38,7 @@ function ChatRoom(props) {
             name="text"
             className="text-input"
             placeholder="type a message..."
-            id="input-message"
+            id="chatRoom-input-message"
             onChange={(event) => setMessage(event.target.value)}
           />
         </div>
@@ -58,6 +46,7 @@ function ChatRoom(props) {
           <button
             type="button"
             className="button-send"
+            id="chatRoom-button-send"
             onClick={message !== "" && sendMessage}>
               <Send className="button-send__logo" />
           </button>
@@ -74,7 +63,7 @@ function Chat (props) {
   if (roomData) {
     return (
         <div className="chat" >
-          <div className="chat--bottom"id="chat" >
+          <div className="chat--bottom" id="chat" >
           {roomsData[activeRoom].map((room, id) => (
             <div key={`message-${id}`} className={room.sender===sender ? "message-send":"message-received"}>
               <div className="message-sender">{room.sender===sender || (id > 1 && room.sender===roomData[id-1].sender) ? "" : room.sender}</div>
@@ -92,7 +81,7 @@ function Chat (props) {
 
 ChatRoom.propTypes = {
   roomData: PropTypes.array,
-  postData: PropTypes.func,
+  postMessages: PropTypes.func,
   setRoomsData: PropTypes.func,
   roomsData: PropTypes.object,
   activeRoom: PropTypes.string,

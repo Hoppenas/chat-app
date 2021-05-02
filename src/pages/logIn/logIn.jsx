@@ -7,7 +7,7 @@ function LogIn() {
     const [password, setPassword] = useState("");
     let history = useHistory();
   
-    const postData = () => {
+    const postUserData = () => {
       let req = new XMLHttpRequest();
   
       req.open("PUT", "https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a", false);
@@ -49,7 +49,7 @@ function LogIn() {
 
     const submit = () => {
       if(checkPassword() & checkEmail()) {
-        postData();
+        postUserData();
         history.push('/chat');
         setEmail("");
         setPassword("");
