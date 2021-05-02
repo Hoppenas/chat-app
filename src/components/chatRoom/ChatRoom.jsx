@@ -24,7 +24,6 @@ function ChatRoom(props) {
 
       postData();
 
-      document.getElementById("input-userName").value = "";
       document.getElementById("input-message").value = "";
     }
 
