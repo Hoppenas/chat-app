@@ -40,6 +40,12 @@ function ChatRoom(props) {
             placeholder="type a message..."
             id="chatRoom-input-message"
             onChange={(event) => setMessage(event.target.value)}
+            onKeyPress={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("chatRoom-button-send").click();
+              }
+            }}
           />
         </div>
 
