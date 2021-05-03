@@ -30,11 +30,11 @@ function Navbar(props) {
             const prepareJSON = JSON.stringify(dataToUpdate)
     
             axios.put(
-                "https://api.jsonbin.io/v3/b/608407ea48f71c7a71cd288e", 
+                "https://api.jsonbin.io/v3/b/609030148a409667ca0499dc", 
                 prepareJSON, 
                 {headers: {
                     "Content-Type": "application/json", 
-                    "X-Master-Key": "$2b$10$bLbTHa0ruz55FFhdAEDrqeVnw6nhKbtCy9BnKJW2DhE.mbDS9rzaG",
+                    "X-Master-Key": "$2b$10$QYJKmo6nsMVTEw1K7sk33.VrcLemXKVeEh.IyZEBp9LLkJpxBKAGC",
                     "X-Bin-Versioning": false,
                 }}
             )

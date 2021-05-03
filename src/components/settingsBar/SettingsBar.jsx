@@ -16,7 +16,7 @@ function SettingsBar() {
     const [newBirthday, setNewBirthday] = useState("");
 
     const getUserData = () => {
-        axios.get(`https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a/latest`, false)
+        axios.get(`https://api.jsonbin.io/b/6090305b8a409667ca049a13/latest`, false)
         .then(res => {
             setUserData(res.data);
         })
@@ -32,11 +32,11 @@ function SettingsBar() {
         const prepareJSON = JSON.stringify(newUserData)
     
         axios.put(
-            "https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a", 
+            "https://api.jsonbin.io/b/6090305b8a409667ca049a13", 
             prepareJSON, 
             {headers: {
               "Content-Type": "application/json", 
-              "X-Master-Key": "$2b$10$bLbTHa0ruz55FFhdAEDrqeVnw6nhKbtCy9BnKJW2DhE.mbDS9rzaG",
+              "X-Master-Key": "$2b$10$QYJKmo6nsMVTEw1K7sk33.VrcLemXKVeEh.IyZEBp9LLkJpxBKAGC",
               "X-Bin-Versioning": false,
             }}
         )

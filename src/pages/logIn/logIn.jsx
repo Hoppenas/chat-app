@@ -10,9 +10,9 @@ function LogIn() {
     const postUserData = () => {
       let req = new XMLHttpRequest();
   
-      req.open("PUT", "https://api.jsonbin.io/b/608b21ed8a409667ca00ae8a", false);
+      req.open("PUT", "https://api.jsonbin.io/b/6090305b8a409667ca049a13", false);
       req.setRequestHeader("Content-Type", "application/json");
-      req.setRequestHeader("X-Master-Key", "$2b$10$bLbTHa0ruz55FFhdAEDrqeVnw6nhKbtCy9BnKJW2DhE.mbDS9rzaG");
+      req.setRequestHeader("X-Master-Key", "$2b$10$QYJKmo6nsMVTEw1K7sk33.VrcLemXKVeEh.IyZEBp9LLkJpxBKAGC");
       req.setRequestHeader("X-Bin-Versioning", false);
   
       const userData = {

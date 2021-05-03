@@ -10,9 +10,9 @@ function Chat() {
   const [roomsData, setRoomsData] = useState({});
   const [activeRoom, setActiveRoom] = useState("room1");
   const [sender, setSender] = useState("Martynas");
-
+  
   const getChatMessages = () => {
-    axios.get(`https://api.jsonbin.io/v3/b/608407ea48f71c7a71cd288e/latest`, false)
+    axios.get(`https://api.jsonbin.io/v3/b/609030148a409667ca0499dc/latest`, false)
       .then(res => {
         setRoomsData(res.data.record)
       })
@@ -23,11 +23,11 @@ function Chat() {
     const prepareJSON = JSON.stringify(roomsData)
 
     axios.put(
-        "https://api.jsonbin.io/v3/b/608407ea48f71c7a71cd288e", 
+        "https://api.jsonbin.io/v3/b/609030148a409667ca0499dc", 
         prepareJSON, 
         {headers: {
           "Content-Type": "application/json", 
-          "X-Master-Key": "$2b$10$bLbTHa0ruz55FFhdAEDrqeVnw6nhKbtCy9BnKJW2DhE.mbDS9rzaG",
+          "X-Master-Key": "$2b$10$QYJKmo6nsMVTEw1K7sk33.VrcLemXKVeEh.IyZEBp9LLkJpxBKAGC",
           "X-Bin-Versioning": false,
         }}
     )
@@ -44,7 +44,6 @@ function Chat() {
 
   useEffect(() => {getChatMessages()}, []);
   useEffect(() => {updateScroll()}, [roomsData, activeRoom]);
-  setInterval(getChatMessages(), 10000);
 
   return (
     <div className="chat-app">
