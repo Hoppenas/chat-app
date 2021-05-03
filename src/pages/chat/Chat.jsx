@@ -44,6 +44,7 @@ function Chat() {
 
   useEffect(() => {getChatMessages()}, []);
   useEffect(() => {updateScroll()}, [roomsData, activeRoom]);
+  setInterval(getChatMessages(), 10000);
 
   return (
     <div className="chat-app">
