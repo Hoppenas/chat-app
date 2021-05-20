@@ -1,4 +1,4 @@
-function TimeConverter(milli) {
+const TimeConverter = (milli) => {
   let time = new Date(milli);
   let hours = time.getUTCHours();
   let minutes = time.getUTCMinutes();

@@ -3,8 +3,13 @@
   flex-direction: row;
   border: 1px solid #d2d2d2;
   max-width: 1000px;
-  min-width: 500px;
   margin: auto;
-  margin-top: 30px;
-  height: 90vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .chat-app {
+    flex-direction: column;
+  }
 }

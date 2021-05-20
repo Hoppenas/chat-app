@@ -1,6 +1,7 @@
 .chat {
-  height: 80vh;
   display: flex;
+  height: 100vh;
+  overflow: hidden;
 
   .chat--bottom {
     align-self: flex-end;
@@ -36,6 +37,7 @@
     width: fit-content;
 
     .message-text {
+      max-width: 300px;
       width: max-content;
     }
 
@@ -68,5 +70,11 @@
       justify-content: flex-end;
       font-size: 11px;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .chat {
+    height: 78vh;
   }
 }

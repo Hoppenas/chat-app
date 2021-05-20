@@ -1,20 +1,28 @@
+import React, {useEffect} from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+
 import Chat from "./pages/chat/Chat";
 import LogIn from "./pages/logIn/logIn";
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    localStorage.setItem("isAuthentificated", false);
+  }, [])
 
   return (
     <div>
       <Router>
         <Switch>
           <Route
-            path="/" 
             exact 
-            component={LogIn} 
+            path="/"
+            component={LogIn}
           />
-          <Route path="/chat" exact component={Chat} />
+          <PrivateRoute 
+            path="/chat" 
+            component={Chat}
+          />
         </Switch>
       </Router>
     </div>

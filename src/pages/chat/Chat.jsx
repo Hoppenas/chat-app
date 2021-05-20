@@ -1,35 +1,34 @@
-import './chat.scss';
-import ChatRoom from "../../components/chatRoom/ChatRoom";
-import Navbar from "../../components/navbar/Navbar";
-import SettingsBar from "../../components/settingsBar/SettingsBar";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Chat() {
+import ChatRoom from "../../components/chatRoom/ChatRoom";
+import Navbar from "../../components/navbar/Navbar";
+import SettingsBar from "../../components/settingsBar/SettingsBar";
+import {getMessageUrl, postMessageUrl, messageHeaders} from "../../api/endpoints";
+import './chat.scss';
 
+
+const Chat = () => {
   const [roomsData, setRoomsData] = useState({});
   const [activeRoom, setActiveRoom] = useState("room1");
-  const [sender, setSender] = useState("Martynas");
+  const [showRoomsButton, setShowRoomsButton] = useState(false);
+  const sender = "Martynas";
   
   const getChatMessages = () => {
-    axios.get(`https://api.jsonbin.io/v3/b/609030148a409667ca0499dc/latest`, false)
+    axios.get(getMessageUrl, false)
       .then(res => {
         setRoomsData(res.data.record)
       })
+      .catch(e => console.log(e));
   }
 
   const postMessages = () => {
-    const dataToUpdate = roomsData;    
     const prepareJSON = JSON.stringify(roomsData)
 
     axios.put(
-        "https://api.jsonbin.io/v3/b/609030148a409667ca0499dc", 
+        postMessageUrl, 
         prepareJSON, 
-        {headers: {
-          "Content-Type": "application/json", 
-          "X-Master-Key": "$2b$10$QYJKmo6nsMVTEw1K7sk33.VrcLemXKVeEh.IyZEBp9LLkJpxBKAGC",
-          "X-Bin-Versioning": false,
-        }}
+        messageHeaders
     )
     .then(res => {
       setRoomsData(res.data.record)
@@ -37,8 +36,8 @@ function Chat() {
     .catch(e => console.log(e));
   }
 
-  function updateScroll(){
-    let element = document.getElementById("chat");
+  const updateScroll = () => {
+    const element = document.getElementById("chat");
     element.scrollTop = element.scrollHeight;
   }
 
@@ -47,13 +46,18 @@ function Chat() {
 
   return (
     <div className="chat-app">
-      <SettingsBar />
+      <SettingsBar 
+        setShowRoomsButton={setShowRoomsButton} 
+        showRoomsButton={showRoomsButton}
+      />
       <Navbar 
         rooms={Object.keys(roomsData)} 
         setActiveRoom={setActiveRoom}
         activeRoom={activeRoom}
         roomsData={roomsData}
         setRoomsData={setRoomsData}
+        setShowRoomsButton={setShowRoomsButton}
+        showRoomsButton={showRoomsButton}
       />
       <ChatRoom 
         roomData={roomsData[activeRoom]} 
@@ -62,6 +66,7 @@ function Chat() {
         sender={sender}
         roomsData={roomsData}
         setRoomsData={setRoomsData}
+        setShowRoomsButton={setShowRoomsButton}
       />
     </div>
   );
