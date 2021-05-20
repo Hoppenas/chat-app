@@ -8,11 +8,17 @@ import {ReactComponent as Send} from "../../assets/icons/play.svg";
 import TimeConvert from "../../utils/TimeConverter";
 
 const ChatRoom = (props) => {
-    const {roomData, postMessages, setRoomsData, roomsData, activeRoom, sender} = props;
+    const {
+      roomData, 
+      postMessages, 
+      setRoomsData, 
+      roomsData, 
+      activeRoom, 
+      sender
+    } = props;
     const [message, setMessage] = useState("");
 
     const sendMessage = () => {
-
       const messageWithData = {
         sender: "Martynas",
         message: message,
@@ -22,7 +28,6 @@ const ChatRoom = (props) => {
       const dataToUpdate = roomsData;
       dataToUpdate[activeRoom].push(messageWithData);
       setRoomsData(dataToUpdate);
-
       postMessages();
       setMessage("");
     }
@@ -70,7 +75,12 @@ const ChatRoom = (props) => {
 
 
 const Chat = (props) => {
-  const {roomData, sender, roomsData, activeRoom} = props;
+  const {
+    roomData, 
+    sender, 
+    roomsData, 
+    activeRoom
+  } = props;
 
   if (roomData) {
     return (
@@ -83,7 +93,12 @@ const Chat = (props) => {
               "message-send":"message-received"
             }>
               <div className="message-sender">
-                {room.sender===sender || (id > 1 && room.sender===roomData[id-1].sender) ? "" : room.sender}
+                {room.sender===sender || 
+                  (id > 1 && room.sender===roomData[id-1].sender) ? 
+                  "" 
+                  : 
+                  room.sender
+                }
               </div>
               <div className="message-text">{room.message}</div>
               <div className="message-time">{TimeConvert(room.time)}</div>

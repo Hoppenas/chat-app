@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 import Modal from "react-modal";
 import axios from 'axios';
@@ -10,7 +10,15 @@ import {postMessageUrl, messageHeaders} from "../../api/endpoints";
 Modal.setAppElement('#root')
 
 const Navbar = (props) => {
-    const {rooms, setActiveRoom, activeRoom, roomsData, setRoomsData, setShowRoomsButton, showRoomsButton} = props;
+    const {
+        rooms, 
+        setActiveRoom, 
+        activeRoom, 
+        roomsData, 
+        setRoomsData, 
+        setShowRoomsButton, 
+        showRoomsButton
+    } = props;
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [roomName, setRoomName] = useState("");
     const [incorrectRoomName, setIncorrectRoomName] = useState(false);
@@ -83,10 +91,13 @@ const Navbar = (props) => {
                     <div className="navbar-firstLine">
                         <div className="room-name">{room}</div>
                         <div className="navbar-time">
-                            {roomsData[room].length>0 ? TimeConvert(roomsData[room][roomsData[room].length-1].time) : ""}
+                            {roomsData[room].length>0 ? 
+                                TimeConvert(roomsData[room][roomsData[room].length-1].time) 
+                                : 
+                                ""
+                            }
                             </div>
                     </div>
-
                     <div className="nabar-lastMessage">
                         {roomsData[room].length>0 ? (
                             `${roomsData[room][roomsData[room].length-1].sender}: ${roomsData[room][roomsData[room].length-1].message}` 

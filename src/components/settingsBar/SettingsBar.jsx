@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Modal from "react-modal";
 import axios from 'axios';
 import {Link} from "react-router-dom";
-import {loginUrl, settingsUrl, settingsHeaders} from "../../api/endpoints";
 
 import "./settingsBar.scss";
+import {loginUrl, settingsUrl, settingsHeaders} from "../../api/endpoints";
 import {ReactComponent as SettingsLogo} from "../../assets/icons/gear-fill.svg";
 import {ReactComponent as SignOutLogo} from "../../assets/icons/box-arrow-right.svg";
 

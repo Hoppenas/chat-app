@@ -19,4 +19,11 @@ const messageHeaders = {
     }
 };
 
-export { loginUrl, settingsUrl, settingsHeaders, getMessageUrl, postMessageUrl, messageHeaders };
+export { 
+    loginUrl, 
+    settingsUrl, 
+    settingsHeaders, 
+    getMessageUrl, 
+    postMessageUrl, 
+    messageHeaders 
+};
